@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress block</title>
+    <link type="image/x-icon" href="./assets/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="main">
+      <div class="progress-block">
+        <p class="progress-block__header">Progress</p>
+        <!-- Блок круга(прогресса)-->
+        <div class="progress-block__progress">
+          <svg class="progress-block__progress-svg" width="128" height="128">
+            <circle
+              class="progress-block__progress-circle"
+              cx="64"
+              cy="64"
+              r="58"
+              fill="none"
+              stroke="#EAF3F6"
+              stroke-width="12"
+            ></circle>
+            <circle
+              class="progress-block__progress-fill"
+              cx="64"
+              cy="64"
+              r="58"
+              fill="none"
+              stroke="#005CFF"
+              stroke-width="12"
+              stroke-dasharray="365"
+              stroke-dashoffset="365"
+            ></circle>
+          </svg>
+        </div>
+        <!-- Блок API(контроллеров)-->
+        <div class="progress-block__controls">
+          <div class="progress-block__controls-row">
+            <input
+              class="progress-block__controls-value-input"
+              value="25"
+              type="number"
+              min="0"
+              max="100"
+            />
+            <p class="progress-block__controls-title">Value</p>
+          </div>
+          <div class="progress-block__controls-row">
+            <span class="progress-block__controls-toggle-animate"> </span>
+            <p class="progress-block__controls-title">Animate</p>
+          </div>
+          <div class="progress-block__controls-row">
+            <span class="progress-block__controls-toggle-hide"> </span>
+            <p class="progress-block__controls-title">Hide</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Подключение скриптов -->
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>

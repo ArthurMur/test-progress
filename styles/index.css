@@ -1,0 +1,145 @@
+/* Общие стили */
+body,
+p {
+  margin: 0;
+}
+
+p {
+  color: #1b1b1c;
+  font-family: "Montserrat";
+  font-weight: 650;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.progress-block {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: 568px;
+  max-height: 320px;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  justify-content: center;
+}
+
+.progress-block__header {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.progress-block__progress {
+  width: 128px;
+  height: 128px;
+  position: relative;
+}
+
+.progress-block__progress-svg {
+  transform: rotate(-90deg);
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.progress-block__progress-circle {
+  transition: stroke-dashoffset 0.4s;
+}
+
+.progress-block__progress-fill {
+  stroke-dasharray: 365; /* Устанавливаем длину штриха */
+  stroke-dashoffset: calc(
+    (100 - var(--progress-value, 0)) * 3.64
+  ); /* Формула вычисляет смещение штриха в зависимости от значения переменной --progress-value. */
+  transition: 0.4s;
+}
+
+/* Состояние hide */
+.progress-block__progress-fill--hide {
+  opacity: 0;
+}
+
+/* Общие стили для контроллеров */
+.progress-block__controls-value-input,
+.progress-block__controls-toggle-animate,
+.progress-block__controls-toggle-hide {
+  width: 44px;
+  height: 26px;
+  border-radius: 20px;
+  padding: 3px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.progress-block__controls-value-input {
+  border: 1px solid #020202;
+  color: #020202;
+  text-align: center;
+
+  &:active,
+  &:hover,
+  &:focus {
+    outline: 0;
+    border-color: #005cff;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.progress-block__controls-toggle-animate,
+.progress-block__controls-toggle-hide {
+  background-color: #eaf3f6;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    width: 25px;
+    background-color: white;
+    height: inherit;
+    border-radius: 36px;
+    transition: left 0.1s ease-in-out; /* Анимация изменения положения */
+  }
+}
+
+/* Стили для тоглов в состоянии active */
+.progress-block__controls-toggle--activeAnimate,
+.progress-block__controls-toggle--activeHide {
+  background-color: #005cff;
+  &::before {
+    left: calc(100% - 28px);
+  }
+}
+
+.progress-block__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.progress-block__controls-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 567px) {
+  .progress-block {
+    flex-direction: column;
+    max-width: 320px;
+    max-height: 568px;
+    gap: 80px;
+  }
+}
